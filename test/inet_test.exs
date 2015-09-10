@@ -4,7 +4,7 @@ defmodule InetTest do
   alias Postgrex.Connection, as: P
 
   setup do
-    options = Keyword.merge(conn_options, [extensions: [{Extension.Inet, {}}]])
+    options = Keyword.merge(conn_options, [extensions: [{Inet, {}}]])
     {:ok, pid} = P.start_link(options)
     {:ok, [pid: pid]}
   end
