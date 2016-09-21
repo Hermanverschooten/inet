@@ -33,7 +33,7 @@ defmodule Inet do
         use MyApp.Web, :model
 
         schema "computers" do
-          field :mac, :Inet
+          field :mac, Inet.INET
           # other fields
         end
       end

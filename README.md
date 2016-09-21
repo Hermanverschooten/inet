@@ -9,6 +9,17 @@ Add this module as en extension when establishing your Postgrex connection:
         database: "inet_test",
         extensions: [{ Inet.Extension, {}}])
 
+Or with Phoenix, open config/{Mix.env}.exs and add the extensions option
+
+      config :myapp, Myapp.Repo,
+        adapter: Ecto.Adapters.Postgres,
+        extensions: [{Inet, nil}],
+        username: "postgres",
+        password: "postgres",
+        database: "myapp_dev",
+        hostname: "localhost",
+        pool_size: 10
+
 Then you can do Ecto.Migration like this:
 
       defmodule MyApp.Repo.Migrations.CreateComputer do
@@ -28,7 +39,7 @@ You can also define Ecto.Models using the matching custom Ecto.Type:
         use MyApp.Web, :model
 
         schema "computers" do
-          field :ip, :inet
+          field :ip, Inet.INET
           # other fields
         end
       end
