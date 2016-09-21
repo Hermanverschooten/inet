@@ -3,7 +3,7 @@ defmodule Inet do
 
   @behaviour Postgrex.Extension
 
-  @inet ~w(inet cidr)
+  @inet ~w(inet cidr macaddr)
 
   @moduledoc """
   A Postgrex.Extension enabling the use of the inet data type.
